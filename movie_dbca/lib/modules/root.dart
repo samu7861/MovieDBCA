@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _appRouter = AppRouter();
+    final appRouter = AppRouter();
 
     return AdaptiveTheme(
       dark: ThemeData.dark(),
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         title: title,
         theme: theme,
         debugShowCheckedModeBanner: false,
-        routerConfig: _appRouter.config(),
+        routerConfig: appRouter.config(),
       ),
     );
   }

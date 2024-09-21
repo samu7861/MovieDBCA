@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:movie_dbca/config/routes/app_router.gr.dart';
+import 'package:movie_dbca/modules/log/presentation/view/login_view.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Screen|Page,Route')
 class AppRouter extends RootStackRouter {
@@ -12,6 +13,7 @@ class AppRouter extends RootStackRouter {
         AutoRoute(
           initial: true,
           page: LoginRoute.page,
+          path: LoginScreen.path,
         ),
       ];
 
