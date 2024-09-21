@@ -1,6 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:adaptive_theme/adaptive_theme.dart';
+
+import '../config/routes/app_router.dart';
+import '../config/routes/auto_router_manager.dart';
 import 'global/presentation/bloc/global_bloc.dart';
 
 class Root extends StatelessWidget {
@@ -22,6 +27,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    final _appRouter = AppRouter();
+
+    return AdaptiveTheme(
+      dark: ThemeData.dark(),
+      light: ThemeData.light(),
+      initial: AdaptiveThemeMode.dark,
+      builder: (theme, dark) => MaterialApp.router(
+        title: title,
+        theme: theme,
+        debugShowCheckedModeBanner: false,
+        routerConfig: _appRouter.config(),
+      ),
+    );
   }
 }
