@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_dbca/config/injectable/injectable_dependencies.dart';
 
 import '../bloc/home_bloc/home_bloc.dart';
+import '../widgets/custom_app_bar.dart';
 
 @RoutePage()
 class HomeScreen extends StatelessWidget {
@@ -22,24 +23,16 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
-  final HomeBloc bloc = context.watch<HomeBloc>();
+    final HomeBloc bloc = context.watch<HomeBloc>();
     return Scaffold(
-      body: ListView.builder(
-        itemCount: bloc.state.movies.length,
-        itemBuilder: (context, index) {
-          final movie = bloc.state.movies[index];
-          return ListTile(
-            title: Text(movie.title),
-            subtitle: Text(movie.overview ?? ''),
-            
-          );
-        },
+      appBar: CustomAppBar(),
+      body: Column(
+        children: [],
       ),
     );
   }

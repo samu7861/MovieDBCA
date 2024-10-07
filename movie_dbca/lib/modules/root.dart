@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:adaptive_theme/adaptive_theme.dart';
-import 'package:movie_dbca/modules/home/presentation/bloc/home_bloc/home_bloc.dart';
+import 'package:movie_dbca/config/theme/app_theme.dart';
 
 import '../config/routes/app_router.dart';
 import '../config/routes/auto_router_manager.dart';
 import 'global/presentation/bloc/global_bloc.dart';
-import 'home/domain/usecases/movies_usecase.dart';
 
 class Root extends StatelessWidget {
   const Root({super.key});
@@ -42,7 +41,7 @@ class MyApp extends StatelessWidget {
       initial: AdaptiveThemeMode.dark,
       builder: (theme, dark) => MaterialApp.router(
         title: title,
-        theme: theme,
+        theme: AppTheme().getTheme(),
         debugShowCheckedModeBanner: false,
         routerConfig: appRouter.config(),
       ),
