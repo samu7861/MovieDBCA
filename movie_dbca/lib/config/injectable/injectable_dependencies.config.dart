@@ -29,7 +29,6 @@ extension GetItInjectableX on _i174.GetIt {
       environment,
       environmentFilter,
     );
-    gh.factory<_i844.HomeBloc>(() => _i844.HomeBloc());
     gh.factory<_i336.IMoviesDatasource>(() => _i336.MoviesDatasourceImpl());
     gh.factory<_i946.IMovieRepository>(() => _i439.MovieRepositoryImpl(
         iMoviesDatasource: gh<_i336.IMoviesDatasource>()));
@@ -41,6 +40,8 @@ extension GetItInjectableX on _i174.GetIt {
         iMovieRepository: gh<_i946.IMovieRepository>()));
     gh.factory<_i1027.SearchMovieUsecase>(() => _i1027.SearchMovieUsecase(
         iMovieRepository: gh<_i946.IMovieRepository>()));
+    gh.factory<_i844.HomeBloc>(() => _i844.HomeBloc(
+        getNowPlayingUsecase: gh<_i1027.GetNowPlayingUsecase>()));
     return this;
   }
 }

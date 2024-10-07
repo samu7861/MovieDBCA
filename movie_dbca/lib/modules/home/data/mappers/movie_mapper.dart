@@ -14,7 +14,7 @@ class MovieMapper {
       popularity: dto?.popularity,
       posterPath: dto?.posterPath,
       releaseDate: dto?.releaseDate,
-      title: dto?.title,
+      title: dto?.title ?? '',
       video: dto?.video,
       voteAverage: dto?.voteAverage,
       voteCount: dto?.voteCount,

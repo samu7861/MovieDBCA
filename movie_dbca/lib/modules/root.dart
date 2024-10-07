@@ -6,8 +6,9 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:movie_dbca/modules/home/presentation/bloc/home_bloc/home_bloc.dart';
 
 import '../config/routes/app_router.dart';
-// import '../config/routes/auto_router_manager.dart';
+import '../config/routes/auto_router_manager.dart';
 import 'global/presentation/bloc/global_bloc.dart';
+import 'home/domain/usecases/movies_usecase.dart';
 
 class Root extends StatelessWidget {
   const Root({super.key});
@@ -16,8 +17,10 @@ class Root extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(
+          create: (context) => AutoRouterManager(),
+        ),
         BlocProvider(create: (context) => GlobalBloc()),
-        BlocProvider(create: (context) => HomeBloc())
       ],
       child: const MyApp(),
     );

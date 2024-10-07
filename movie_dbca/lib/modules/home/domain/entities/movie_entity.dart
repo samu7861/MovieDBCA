@@ -11,7 +11,7 @@ class MovieEntity extends Equatable{
   final double? popularity;
   final String? posterPath;
   final DateTime? releaseDate;
-  final String? title;
+  final String title;
   final bool? video;
   final double? voteAverage;
   final int? voteCount;
