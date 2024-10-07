@@ -5,7 +5,9 @@ class MovieMapper {
   static MovieEntity toEntity(MovieDto? dto) {
     return MovieEntity(
       adult: dto?.adult,
-      backdropPath: dto?.backdropPath,
+      backdropPath: dto?.backdropPath != ''
+          ? 'https://image.tmdb.org/t/p/w500${dto?.backdropPath}'
+          : 'https://sd.keepcalms.com/i-w600/keep-calm-poster-not-found.jpg',
       genreIds: dto?.genreIds?.map((id) => id.toString()).toList(),
       id: dto?.id,
       originalLanguage: dto?.originalLanguage,
